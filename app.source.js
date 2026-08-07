@@ -25,7 +25,6 @@ function renderSystem(sys) {
       ${sys.avatar_url ? `<img class="sys-avatar" src="${sys.avatar_url}" alt="">` : ""}
       <div>
         <h1 class="sys-name">${escapeHtml(sys.name || "System")}</h1>
-        ${sys.description ? `<p class="sys-desc">${escapeHtml(sys.description)}</p>` : ""}
       </div>
     </div>
   `;
