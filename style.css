@@ -1,21 +1,17 @@
 :root {
-  --bg: #1B2A4A;
-  --panel: #2E3B4E;
-  --text: #E8EEF2;
-  --muted: #8FA0B8;
-  --accent: #F0B860;
-  --border: #3D4D66;
+  --bg: #14121a;
+  --panel: #1e1b26;
+  --text: #ece8f2;
+  --muted: #a89fbb;
+  --accent: #b294f5;
+  --border: #322c40;
 }
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  background-color: var(--bg);
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  background-size: 40px 40px;
+  background: var(--bg);
   color: var(--text);
   font-family: 'Segoe UI', system-ui, sans-serif;
   line-height: 1.5;
@@ -79,7 +75,33 @@ main {
   letter-spacing: 0.08em;
   font-size: 0.85rem;
   color: var(--muted);
+  margin: 0;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 16px;
+}
+
+.music-btn {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s ease;
+}
+
+.music-btn:hover {
+  border-color: var(--accent);
 }
 
 .alters-grid {
