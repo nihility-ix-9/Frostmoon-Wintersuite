@@ -23,9 +23,7 @@ function renderSystem(sys) {
     ${bannerHtml}
     <div class="header-content">
       ${sys.avatar_url ? `<img class="sys-avatar" src="${sys.avatar_url}" alt="">` : ""}
-      <div>
-        <h1 class="sys-name">${escapeHtml(sys.name || "System")}</h1>
-      </div>
+      <h1 class="sys-name">${escapeHtml(sys.name || "System")}</h1>
     </div>
   `;
 }
@@ -59,10 +57,13 @@ function renderMembers(members) {
   members.forEach(m => {
     const card = document.createElement("div");
     card.className = "alter-card";
+    const memberColor = m.color ? `#${m.color}` : "#888888";
     card.innerHTML = `
+      <div class="tint" style="background:${memberColor};"></div>
       <img src="${m.avatar_url || ""}" alt="">
-      <div>
-        <h3>${escapeHtml(m.display_name || m.name)} ${m.pronouns ? `<span class="pronouns">(${escapeHtml(m.pronouns)})</span>` : ""}</h3>
+      <div class="card-body">
+        <h3>${escapeHtml(m.display_name || m.name)}</h3>
+        ${m.pronouns ? `<span class="pronouns">${escapeHtml(m.pronouns)}</span>` : ""}
       </div>
     `;
     container.appendChild(card);
