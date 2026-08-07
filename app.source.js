@@ -62,7 +62,7 @@ function renderMembers(members) {
       <div class="tint" style="background:${memberColor};"></div>
       <img src="${m.avatar_url || ""}" alt="">
       <div class="card-body">
-        <h3>${escapeHtml(m.display_name || m.name)}</h3>
+        <h3>${escapeHtml(m.name || m.name)}</h3>
         ${m.pronouns ? `<span class="pronouns">${escapeHtml(m.pronouns)}</span>` : ""}
       </div>
     `;
