@@ -13,7 +13,13 @@
   </header>
 
   <main>
-    <h2 class="section-label">currently fronting</h2>
+    <div class="section-header">
+      <h2 class="section-label">currently fronting</h2>
+      <button id="music-toggle" class="music-btn" aria-label="Toggle background music">🔇</button>
+    </div>
+    <audio id="bg-music" loop preload="auto">
+      <source src="YOUR-MUSIC-LINK-HERE.mp3" type="audio/mpeg">
+    </audio>
     <div id="alters" class="alters-grid">
       <div class="loading">loading members...</div>
     </div>
