@@ -1,0 +1,135 @@
+:root {
+  --bg: #14121a;
+  --panel: #1e1b26;
+  --text: #ece8f2;
+  --muted: #a89fbb;
+  --accent: #b294f5;
+  --border: #322c40;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+.loading {
+  color: var(--muted);
+  font-style: italic;
+  padding: 20px;
+}
+
+#system-header {
+  position: relative;
+  padding: 40px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel);
+  overflow: hidden;
+}
+
+.banner-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+  z-index: 0;
+}
+
+.header-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.sys-avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  flex-shrink: 0;
+}
+
+.sys-name {
+  margin: 0 0 6px 0;
+  font-size: 1.8rem;
+  color: var(--accent);
+}
+
+.sys-desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  max-width: 560px;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+}
+
+.section-label {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.alters-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.alter-card {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.alter-card img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+.alter-card h3 {
+  margin: 0 0 2px 0;
+  font-size: 1.05rem;
+}
+
+.alter-card .pronouns {
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: normal;
+}
+
+.alter-card p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
