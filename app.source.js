@@ -78,3 +78,36 @@ function escapeHtml(str) {
 
 loadSystem();
 loadMembers();
+
+const music = document.getElementById("bg-music");
+const musicBtn = document.getElementById("music-toggle");
+let musicStarted = false;
+let userPaused = false;
+
+function updateButtonIcon() {
+  musicBtn.textContent = music.paused ? "🔇" : "🔊";
+}
+
+function startMusicOnFirstInteraction() {
+  if (musicStarted || userPaused) return;
+  music.play().then(() => {
+    musicStarted = true;
+    updateButtonIcon();
+  }).catch(() => {
+  });
+}
+
+document.addEventListener("click", startMusicOnFirstInteraction, { once: true });
+document.addEventListener("keydown", startMusicOnFirstInteraction, { once: true });
+
+musicBtn.addEventListener("click", (e) => {
+  e.stopPropagation(); 
+  if (music.paused) {
+    userPaused = false;
+    music.play();
+  } else {
+    userPaused = true;
+    music.pause();
+  }
+  updateButtonIcon();
+});
