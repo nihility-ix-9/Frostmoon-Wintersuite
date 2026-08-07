@@ -64,7 +64,6 @@ function renderMembers(members) {
       <img src="${m.avatar_url || ""}" alt="">
       <div>
         <h3>${escapeHtml(m.display_name || m.name)} ${m.pronouns ? `<span class="pronouns">(${escapeHtml(m.pronouns)})</span>` : ""}</h3>
-        ${m.description ? `<p>${escapeHtml(m.description).slice(0, 200)}</p>` : ""}
       </div>
     `;
     container.appendChild(card);
