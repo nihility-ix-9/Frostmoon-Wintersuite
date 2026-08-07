@@ -1,10 +1,10 @@
 :root {
-  --bg: #2B1416;
-  --panel: #3D2020;
+  --bg: #241A12;
+  --panel: #382719;
   --text: #F5E6D3;
-  --muted: #C9A788;
-  --accent: #E8A33D;
-  --border: #5C2E2E;
+  --muted: #B8A088;
+  --accent: #D94F4F;
+  --border: #4A3320;
 }
 
 * { box-sizing: border-box; }
@@ -12,9 +12,9 @@
 body {
   margin: 0;
   background-color: var(--bg);
-background-image:
-  linear-gradient(rgba(232, 163, 61, 0.08) 1px, transparent 1px),
-  linear-gradient(90deg, rgba(232, 163, 61, 0.08) 1px, transparent 1px);
+  background-image:
+    linear-gradient(rgba(217, 79, 79, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(217, 79, 79, 0.06) 1px, transparent 1px);
   background-size: 40px 40px;
   color: var(--text);
   font-family: 'Segoe UI', system-ui, sans-serif;
