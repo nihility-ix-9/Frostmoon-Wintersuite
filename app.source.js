@@ -80,6 +80,7 @@ loadSystem();
 loadMembers();
 
 const music = document.getElementById("bg-music");
+music.volume = 0.3;
 const musicBtn = document.getElementById("music-toggle");
 let musicStarted = false;
 let userPaused = false;
