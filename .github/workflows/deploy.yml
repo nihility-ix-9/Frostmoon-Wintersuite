@@ -1,0 +1,65 @@
+name: Build and deploy site
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install obfuscator
+        run: npm install --no-save javascript-obfuscator
+
+      - name: Inject system ID into source
+        run: |
+          sed -i "s/__PK_SYSTEM_ID__/${{ secrets.PK_SYSTEM_ID }}/" app.source.js
+
+      - name: Obfuscate JS
+        run: |
+          npx javascript-obfuscator app.source.js \
+            --output dist/app.min.js \
+            --compact true \
+            --control-flow-flattening true \
+            --string-array true \
+            --string-array-encoding base64
+
+      - name: Copy static files into dist
+        run: |
+          mkdir -p dist
+          cp index.html dist/index.html
+          cp style.css dist/style.css
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
