@@ -47,6 +47,8 @@ jobs:
           mkdir -p dist
           cp index.html dist/index.html
           cp style.css dist/style.css
+          cp folk_acoustic-silent-night-acoustic-indie-version-127052.mp3 dist/folk_acoustic-silent-night-acoustic-indie-version-127052.mp3
+          
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
