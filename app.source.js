@@ -33,12 +33,18 @@ function renderSystem(sys) {
 
 async function loadMembers() {
   try {
-    const res = await fetch(`${API_BASE}/systems/${SYSTEM_ID}/members`);
-    const members = await res.json();
-    renderMembers(members);
+    const res = await fetch(`${API_BASE}/systems/${SYSTEM_ID}/fronters`);
+
+    if (res.status === 204) {
+      renderMembers([]);
+      return;
+    }
+
+    const data = await res.json();
+    renderMembers(data.members || []);
   } catch (err) {
     document.getElementById("alters").innerHTML =
-      `<div class="loading">Couldn't load members.</div>`;
+      `<div class="loading">Couldn't load current front.</div>`;
   }
 }
 
@@ -47,7 +53,7 @@ function renderMembers(members) {
   container.innerHTML = "";
 
   if (!members || members.length === 0) {
-    container.innerHTML = `<div class="loading">No public members to show.</div>`;
+    container.innerHTML = `<div class="loading">No one is currently marked as fronting.</div>`;
     return;
   }
 
